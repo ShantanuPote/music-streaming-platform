@@ -25,4 +25,13 @@ export const registerUserValidationRules = [
 ]
 
 
+export const loginUserValidationRules = [
+     body('email')
+        .isEmail()
+        .withMessage("Invalid email address"),
+    body('password')
+        .isLength({min: 6})
+        .withMessage("Password is required")
+]
+
 
