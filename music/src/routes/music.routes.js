@@ -15,4 +15,6 @@ router.post("/upload",authMiddleware.authArtistMiddleware,upload.fields([
     {name: 'coverImage', maxCount: 1}
 ]),musicController.uploadMusic)
 
+router.get("/artist-music/:aristId",authMiddleware.authArtistMiddleware, musicController.getArtistMusic)
+
 export default router;

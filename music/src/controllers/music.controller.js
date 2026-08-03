@@ -51,3 +51,23 @@ console.log("Uploaded Cover:", uploadedCover);
         })
     }
 }
+
+export async function getArtistMusic(req, res) {
+    try {
+
+        const { artistId } = req.params;
+
+        const musics = await musicModel.find({ artistId });
+
+        return res.status(200).json({
+            musics
+        });
+
+    } catch (err) {
+        console.log(err);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+}
